@@ -1,77 +1,58 @@
-import { useMemo, useState } from "react";
-import { works } from "../data/works";
+// src/sections/Trabalho.jsx
+
+const works = [
+  {
+    src: "/portfolio/work-1.jpg",
+    title: "Realismo Preto e Cinza",
+  },
+  {
+    src: "/portfolio/work-2.jpg",
+    title: "Portrait (Rosto)",
+  },
+  {
+    src: "/portfolio/work-3.jpg",
+    title: "Contraste e Profundidade",
+  },
+  {
+    src: "/portfolio/work-4.jpg",
+    title: "Projeto Autoral",
+  },
+];
 
 export default function Trabalhos() {
-  const items = useMemo(() => works, []);
-  const [activeIndex, setActiveIndex] = useState(null);
-
-  const open = (index) => setActiveIndex(index);
-  const close = () => setActiveIndex(null);
-
-  const next = () => {
-    if (activeIndex === null) return;
-    setActiveIndex((prev) => (prev + 1) % items.length);
-  };
-
-  const prev = () => {
-    if (activeIndex === null) return;
-    setActiveIndex((prev) => (prev - 1 + items.length) % items.length);
-  };
-
   return (
-    <section id="trabalhos" className="section section-dark">
+    <section className="section" id="trabalhos" aria-label="Trabalhos">
       <div className="container">
         <div className="section-head">
-  <h2 className="section-title">Trabalhos</h2>
-          <p className="muted">Seleção de 4 peças em destaque. Clique para ampliar.</p>
+          <h2 className="section-title">Trabalhos</h2>
+          <p className="text-editorial">
+            Trabalhos em <strong>realismo preto e cinza</strong>, com foco em
+            leitura, contraste e fidelidade à referência.
+          </p>
         </div>
 
         <div className="works-grid">
-          {items.map((work, index) => (
+          {works.map((work) => (
             <button
-              key={work.id}
+              key={work.src}
+              type="button"
               className="work"
-              onClick={() => open(index)}
-              aria-label={`Abrir trabalho: ${work.title}`}
+              aria-label={work.title}
             >
-              <img src={work.src} alt={work.title} loading="lazy" />
+              <img
+                src={work.src}
+                alt={work.title}
+                loading="lazy"
+                draggable={false}
+              />
+
               <div className="work-overlay">
-                <span className="work-title">{work.title}</span>
-                <span className="work-hint">Clique para ampliar</span>
+                <div className="work-title">{work.title}</div>
+                <div className="work-hint">Clique para ampliar</div>
               </div>
             </button>
           ))}
         </div>
-
-        {activeIndex !== null && (
-          <div className="lightbox" role="dialog" aria-modal="true">
-            <div className="lightbox-backdrop" onClick={close} />
-
-            <div className="lightbox-content">
-              <button className="icon-btn" onClick={close} aria-label="Fechar">
-                ✕
-              </button>
-
-              <button className="icon-btn left" onClick={prev} aria-label="Anterior">
-                ‹
-              </button>
-
-              <img
-                className="lightbox-img"
-                src={items[activeIndex].src}
-                alt={items[activeIndex].title}
-              />
-
-              <button className="icon-btn right" onClick={next} aria-label="Próximo">
-                ›
-              </button>
-
-              <div className="lightbox-caption">
-                <span className="accent">{items[activeIndex].title}</span>
-              </div>
-            </div>
-          </div>
-        )}
       </div>
     </section>
   );

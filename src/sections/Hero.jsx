@@ -1,8 +1,7 @@
 // src/sections/Hero.jsx
 import SplitText from "../components/SplitText";
 import valdirImg from "../assets/valdir.jpg";
-import DarkVeil from "@/components/DarkVeilBackground";
-
+import DarkVeil from "../components/DarkVeil"; // ajuste se o caminho for diferente
 
 export default function Hero() {
   const handleAnimationComplete = () => {
@@ -10,8 +9,22 @@ export default function Hero() {
   };
 
   return (
-      <section className="hero" id="top" aria-label="Apresentação" style={{ position: "relative" }}>
-      <div style={{ position: "absolute", inset: 0, zIndex: 0, pointerEvents: "none" }}>
+    <section
+      className="hero"
+      id="top"
+      aria-label="Apresentação"
+      style={{ position: "relative" }}
+    >
+      {/* Background (fica atrás de tudo) */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          zIndex: 0,
+          pointerEvents: "none",
+        }}
+        aria-hidden="true"
+      >
         <DarkVeil
           hueShift={183}
           noiseIntensity={0.12}
@@ -23,7 +36,11 @@ export default function Hero() {
         />
       </div>
 
-      <div className="container hero-content hero-grid">
+      {/* Conteúdo (sempre na frente do background) */}
+      <div
+        className="container hero-content hero-grid"
+        style={{ position: "relative", zIndex: 1 }}
+      >
         {/* LADO ESQUERDO */}
         <div className="hero-left">
           <div className="pill">Realismo Preto e Cinza • Portrait</div>
@@ -43,7 +60,6 @@ export default function Hero() {
               rootMargin="-100px"
               textAlign="left"
               onLetterAnimationComplete={handleAnimationComplete}
-              showCallback
             />
 
             <SplitText
@@ -62,13 +78,12 @@ export default function Hero() {
             />
           </div>
 
-         <p className="hero-subtitle">
-  <strong>Valdir Neto</strong> — tatuador desde <strong>2015</strong>,
-  com base artística no <strong>graffiti (2010–2013)</strong>. Foco em{" "}
-  <strong>realismo preto e cinza</strong> com precisão,{" "}
-  <strong>contraste</strong> e <strong>leitura</strong>.
-</p>
-
+          <p className="hero-subtitle">
+            <strong>Valdir Neto</strong> — tatuador desde <strong>2015</strong>,
+            com base artística no <strong>graffiti (2010–2013)</strong>. Foco em{" "}
+            <strong>realismo preto e cinza</strong> com precisão,{" "}
+            <strong>contraste</strong> e <strong>leitura</strong>.
+          </p>
 
           <div className="hero-actions">
             <a
@@ -115,7 +130,9 @@ export default function Hero() {
 
           <div className="hero-badge">
             <div className="hero-badge-title">Neurops</div>
-            <div className="hero-badge-sub">Realismo Preto e Cinza • Portrait</div>
+            <div className="hero-badge-sub">
+              Realismo Preto e Cinza • Portrait
+            </div>
           </div>
         </div>
       </div>

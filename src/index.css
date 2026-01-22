@@ -60,6 +60,12 @@ body{
 }
 .muted{ color: var(--muted); }
 .small{ font-size: var(--text-small); }
+@font-face{
+  font-family: "Zalando Sans Expanded";
+  src: url("/assets/fonts/ZalandoSansExpanded.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 
 /* =========================
    NAVBAR (UPGRADE)
