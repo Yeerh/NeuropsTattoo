@@ -1,0 +1,688 @@
+/* =========================
+   TIPOGRAFIA + TOKENS
+   ========================= */
+:root{
+  --bg: #0b0b0b;
+  --panel: rgba(255,255,255,0.04);
+  --panel2: rgba(255,255,255,0.06);
+  --border: rgba(255,255,255,0.10);
+  --text: #f5f5f5;
+  --muted: rgba(245,245,245,0.70);
+
+  --accent: #ff5a1f;
+  --accentGlow: rgba(255,90,31,0.28);
+
+  --shadow: 0 18px 60px rgba(0,0,0,0.45);
+  --radius: 18px;
+
+  /* fontes (adicione no index.html: Bebas Neue + Inter) */
+  --font-display: "Bebas Neue", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  --font-body: "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+
+  /* escala/hierarquia */
+  --text-hero: clamp(3.0rem, 6vw, 4.8rem);
+  --text-h2: clamp(1.5rem, 2.2vw, 2.0rem);
+  --text-body: 1.02rem;
+  --text-small: 0.92rem;
+}
+body{
+  background: var(--bg);
+}
+#root{
+  position: relative;
+  min-height: 100vh;
+}
+main, header, section, nav{
+  position: relative;
+  z-index: 10;
+}
+
+
+/* =========================
+   RESET + BASE
+   ========================= */
+*{ margin: 0; padding: 0; box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+body{
+  background:
+    radial-gradient(1200px 600px at 20% -10%, rgba(255,90,31,0.18), transparent 60%),
+    radial-gradient(900px 500px at 80% 10%, rgba(255,90,31,0.10), transparent 60%),
+    var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.55;
+}
+
+/* helpers */
+.container{
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+}
+.muted{ color: var(--muted); }
+.small{ font-size: var(--text-small); }
+
+/* =========================
+   NAVBAR
+   ========================= */
+.navbar{
+  position: sticky;
+  top: 0;
+  z-index: 80;
+  backdrop-filter: blur(14px);
+  background: rgba(0,0,0,0.55);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.navbar-inner{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  gap: 14px;
+}
+.logo{
+  text-decoration: none;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+}
+.logo-dot{ color: var(--accent); margin-left: 6px; }
+
+.nav{
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.nav a{
+  text-decoration: none;
+  color: rgba(245,245,245,0.88);
+  font-size: 0.95rem;
+  padding: 8px 10px;
+  border-radius: 10px;
+  transition: transform .2s ease, background .2s ease, color .2s ease;
+}
+.nav a:hover{
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
+  transform: translateY(-1px);
+}
+
+.nav-cta{
+  text-decoration: none;
+  background: rgba(255,90,31,0.14);
+  border: 1px solid rgba(255,90,31,0.35);
+  color: var(--text);
+  padding: 9px 12px;
+  border-radius: 12px;
+  font-weight: 800;
+  transition: transform .2s ease, background .2s ease;
+}
+.nav-cta:hover{
+  transform: translateY(-1px);
+  background: rgba(255,90,31,0.20);
+}
+/* Texto editorial (Hero subtitle + Sobre) */
+.text-editorial{
+  font-family: "Zalando Sans Expanded", sans-serif;
+  font-size: 1.02rem;
+  max-width: 68ch;
+  color: rgba(245,245,245,0.82);
+  line-height: 1.75;
+  letter-spacing: 0.01em;
+}
+/* Palavra destacada (laranja premium) */
+.accent-word{
+  color: var(--accent);
+  font-weight: 700;
+  position: relative;
+  text-shadow: 0 0 18px rgba(255, 90, 31, 0.22);
+  white-space: nowrap;
+}
+
+/* underline com gradiente */
+.accent-word::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.12em;
+  width: 100%;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(255,90,31,0.0), rgba(255,90,31,0.95), rgba(255,90,31,0.0));
+  transform: scaleX(0);
+  transform-origin: left;
+  opacity: 0.9;
+}
+
+/* cards: opcional para ajudar no visual da animação */
+.service-card{
+  will-change: transform, opacity;
+}
+
+/* Destaques dentro do texto */
+.text-editorial strong{
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* =========================
+   HERO
+   ========================= */
+.hero{
+  position: relative;
+  padding: 72px 0 22px;
+}
+.hero-bg{
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(900px 380px at 18% 20%, rgba(255,90,31,0.20), transparent 60%),
+    radial-gradient(800px 360px at 80% 20%, rgba(255,255,255,0.06), transparent 60%);
+  pointer-events: none;
+  opacity: 0.95;
+}
+
+.hero-content{
+  position: relative;
+  padding: 54px 0 26px;
+}
+
+/* layout */
+.hero-grid{
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 22px;
+  align-items: center;
+}
+.hero-left{ position: relative; }
+.hero-right{
+  position: relative;
+  display: grid;
+  gap: 12px;
+  justify-items: end;
+}
+
+/* pill */
+.pill{
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  color: rgba(245,245,245,0.85);
+  width: fit-content;
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  font-size: 0.92rem;
+}
+
+/* título */
+.hero-title{
+  margin-top: 14px;
+  margin-bottom: 18px;
+  display: grid;
+  gap: 6px;
+}
+.hero-h1{
+  font-family: "Firlest Regular", sans-serif;
+  font-size: var(--text-hero);
+  font-weight: 800;               /* extra-negrito */
+  letter-spacing: 0.22em;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+/* Tattoo laranja (extranegrito mantido) */
+.hero-h1.accent{
+  color: var(--accent);
+  font-weight: 800;
+  text-shadow: 0 0 22px var(--accentGlow);
+}
+
+/* SplitText spans */
+.split-char{ display: inline-block; }
+
+/* subtítulo com palavras-chave em negrito */
+.hero-subtitle{
+  font-family: "Zalando Sans Expanded", sans-serif;
+  font-size: 1.05rem;
+  max-width: 62ch;
+  color: rgba(245,245,245,0.82);
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+}
+
+/* Palavras em destaque continuam mais fortes */
+.hero-subtitle strong{
+  font-weight: 600;
+  color: #ffffff;
+}
+.hero-subtitle{
+  text-wrap: balance;
+}
+
+
+/* CTAs */
+.hero-actions{
+  margin-top: 22px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  transition: transform .2s ease, background .2s ease, border-color .2s ease;
+}
+.btn.primary{
+  color: #0b0b0b;
+  background: var(--accent);
+  border: 1px solid rgba(255,90,31,0.50);
+  box-shadow: 0 10px 35px rgba(255,90,31,0.18);
+}
+.btn.primary:hover{ transform: translateY(-1px); }
+.btn.ghost{
+  color: var(--text);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+.btn.ghost:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,0.08);
+}
+
+/* stats */
+.stats{
+  margin-top: 26px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.stat{
+  padding: 14px 14px;
+  border-radius: var(--radius);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.10);
+}
+.stat-value{
+  font-size: 1.25rem;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+}
+.stat-label{
+  margin-top: 2px;
+  color: rgba(245,245,245,0.70);
+  font-size: 0.92rem;
+}
+
+/* =========================
+   FOTO + BADGE
+   ========================= */
+.hero-photo-frame{
+  position: relative;
+  width: min(420px, 100%);
+  border-radius: 26px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.04);
+  box-shadow: 0 28px 90px rgba(0,0,0,0.60);
+}
+.hero-photo{
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  display: block;
+  filter: contrast(1.02) saturate(1.02);
+}
+.hero-photo-glow{
+  position: absolute;
+  inset: -40px;
+  background: radial-gradient(380px 240px at 70% 20%, rgba(255,90,31,0.22), transparent 60%);
+  pointer-events: none;
+}
+.hero-badge{
+  width: min(420px, 100%);
+  padding: 12px 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,90,31,0.25);
+  background: rgba(255,90,31,0.10);
+}
+.hero-badge-title{
+  font-weight: 900;
+  letter-spacing: -0.01em;
+}
+.hero-badge-sub{
+  color: rgba(245,245,245,0.75);
+  font-size: 0.95rem;
+  margin-top: 2px;
+}
+
+/* =========================
+   SECTIONS (geral)
+   ========================= */
+.section{ padding: 64px 0; }
+.section-dark{
+  background: linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.35));
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.section-head{
+  display: grid;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+.section h2{
+  font-size: var(--text-h2);
+  letter-spacing: -0.01em;
+  font-weight: 800;
+}
+
+/* =========================
+   WHATSAPP FLOAT
+   ========================= */
+.whatsapp-float{
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 120;
+  padding: 12px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 900;
+  color: #0b0b0b;
+  background: var(--accent);
+  border: 1px solid rgba(255,90,31,0.55);
+  box-shadow: 0 16px 50px rgba(255,90,31,0.16);
+  transition: transform .2s ease;
+}
+.whatsapp-float:hover{ transform: translateY(-2px); }
+
+/* =========================
+   RESPONSIVO
+   ========================= */
+@media (max-width: 980px){
+  .hero-grid{ grid-template-columns: 1fr; }
+  .hero-right{ justify-items: start; }
+  .hero-photo{ height: 420px; }
+  .nav{ display: none; } /* depois podemos fazer menu mobile */
+  .stats{ grid-template-columns: 1fr; }
+}
+/* =========================================================
+   TRABALHOS (PORTFÓLIO) + LIGHTBOX
+   ========================================================= */
+
+.works-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.work{
+  position: relative;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: calc(var(--radius) + 2px);
+  overflow: hidden;
+  background: rgba(255,255,255,0.04);
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+  transition: transform .2s ease, border-color .2s ease;
+}
+
+.work:hover{
+  transform: translateY(-2px);
+  border-color: rgba(255,90,31,0.35);
+}
+
+.work img{
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+  filter: saturate(1.02) contrast(1.02);
+}
+
+.work-overlay{
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 14px 14px;
+  background: linear-gradient(180deg, transparent, rgba(0,0,0,0.78));
+  display: grid;
+  gap: 4px;
+}
+
+.work-title{
+  font-weight: 900;
+  letter-spacing: -0.01em;
+}
+
+.work-hint{
+  color: rgba(245,245,245,0.70);
+  font-size: 0.92rem;
+}
+
+/* Lightbox */
+.lightbox{
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+}
+
+.lightbox-backdrop{
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.72);
+  backdrop-filter: blur(6px);
+}
+
+.lightbox-content{
+  position: relative;
+  width: min(980px, calc(100% - 28px));
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(10,10,10,0.88);
+  box-shadow: 0 28px 90px rgba(0,0,0,0.65);
+  overflow: hidden;
+}
+
+.lightbox-img{
+  width: 100%;
+  height: min(72vh, 720px);
+  object-fit: contain;
+  display: block;
+  background: rgba(0,0,0,0.35);
+}
+
+.lightbox-caption{
+  padding: 12px 14px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  color: rgba(245,245,245,0.85);
+}
+
+/* Botões do lightbox */
+.icon-btn{
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
+  width: 40px;
+  height: 40px;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: transform .2s ease, background .2s ease;
+}
+.icon-btn:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,0.08);
+}
+.icon-btn.left,
+.icon-btn.right{
+  top: 50%;
+  transform: translateY(-50%);
+  right: auto;
+  font-size: 24px;
+  width: 44px;
+  height: 44px;
+}
+.icon-btn.left{ left: 10px; }
+.icon-btn.right{ right: 10px; }
+
+
+/* =========================================================
+   SERVIÇOS
+   ========================================================= */
+
+.services-grid{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.card.service{
+  padding: 16px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform .2s ease, border-color .2s ease, background .2s ease;
+}
+
+.card.service:hover{
+  transform: translateY(-2px);
+  border-color: rgba(255,90,31,0.28);
+  background: rgba(255,255,255,0.06);
+}
+
+.card.service h3{
+  font-size: 1.02rem;
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+  font-weight: 800;
+}
+
+.card.service p{
+  color: rgba(245,245,245,0.72);
+  font-size: var(--text-small);
+  line-height: 1.55;
+}
+
+/* Steps (Como funciona) */
+.steps{
+  margin-top: 14px;
+  display: grid;
+  gap: 10px;
+}
+
+.step{
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 12px;
+  padding: 14px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.04);
+}
+
+.step-num{
+  font-weight: 900;
+  color: rgba(255,90,31,0.85);
+  font-family: var(--font-body);
+  letter-spacing: -0.01em;
+}
+
+.step strong{
+  font-weight: 800;
+}
+
+/* =========================================================
+   RESPONSIVO (Trabalhos + Serviços)
+   ========================================================= */
+@media (max-width: 980px){
+  .works-grid{ grid-template-columns: 1fr; }
+  .work img{ height: 300px; }
+
+  .services-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 560px){
+  .services-grid{ grid-template-columns: 1fr; }
+}
+
+/* Adding Brotheric Regular Demo font */
+@font-face {
+  font-family: "Brotheric Regular Demo";
+  src: url("./assets/fonts/Brotheric Regular Demo.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.hero-h1-brotheric {
+  font-family: "Brotheric Regular Demo", sans-serif;
+}
+
+/* Adding Firlest Regular font */
+@font-face {
+  font-family: "Firlest Regular";
+  src: url("./assets/fonts/Firlest-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.hero-h1 {
+  font-family: "Firlest Regular", sans-serif;
+}
+/* =========================
+   DESTAQUE LARANJA (PALAVRAS)
+   ========================= */
+.highlight{
+  color: var(--accent);
+  font-weight: 700;
+  position: relative;
+  text-shadow: 0 0 14px rgba(255, 90, 31, 0.22);
+  white-space: nowrap;
+}
+
+.highlight::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.15em;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255,90,31,0), rgba(255,90,31,0.9), rgba(255,90,31,0));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.7s cubic-bezier(.2,.9,.2,1);
+}
+
+.highlight.is-active::after{
+  transform: scaleX(1);
+}
+
+.service-card{
+  will-change: transform, opacity;
+}
+
+/* =========================
+   CARDS (animação)
+   ========================= */
+.service-card{
+  will-change: transform, opacity;
+}
+
