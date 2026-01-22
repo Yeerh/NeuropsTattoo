@@ -95,7 +95,7 @@ export default function Hero() {
               <div className="stat-label">início na tattoo</div>
             </div>
             <div className="stat">
-              <div className="stat-value">PB</div>
+              <div className="stat-value">Preto e Cinza</div>
               <div className="stat-label">realismo e portrait</div>
             </div>
           </div>
@@ -115,7 +115,7 @@ export default function Hero() {
 
           <div className="hero-badge">
             <div className="hero-badge-title">Neurops</div>
-            <div className="hero-badge-sub">Realismo PB e Cinza • Portrait</div>
+            <div className="hero-badge-sub">Realismo Preto e Cinza • Portrait</div>
           </div>
         </div>
       </div>

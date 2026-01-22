@@ -3,10 +3,10 @@ export default function Servicos() {
     <section className="section section-dark" id="servicos">
       <div className="container">
         <div className="section-head">
-          <h2>Serviços</h2>
+          <h2 className="section-title">Serviços</h2>
           <p className="text-editorial">
             Trabalhos autorais e personalizados, com foco em{" "}
-            <strong>realismo preto e cinza</strong>, leitura visual e acabamento
+            <strong>Realismo preto e cinza</strong>, leitura visual e acabamento
             preciso.
           </p>
         </div>

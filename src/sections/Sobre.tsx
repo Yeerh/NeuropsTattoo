@@ -2,9 +2,10 @@ export default function Sobre() {
   return (
     <section className="section" id="sobre">
       <div className="container">
-        <div className="section-head">
-          <h2>Sobre</h2>
-        </div>
+      <div className="section-head">
+  <h2 className="section-title">Sobre</h2>
+</div>
+
 
         <p className="text-editorial">
           <strong>Valdir Neto</strong> — tatuador desde <strong>2015</strong>, com

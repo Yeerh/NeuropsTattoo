@@ -22,7 +22,7 @@ export default function Trabalhos() {
     <section id="trabalhos" className="section section-dark">
       <div className="container">
         <div className="section-head">
-          <h2>Trabalhos</h2>
+  <h2 className="section-title">Trabalhos</h2>
           <p className="muted">Seleção de 4 peças em destaque. Clique para ampliar.</p>
         </div>
 
