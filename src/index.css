@@ -61,7 +61,7 @@ body{
 .muted{ color: var(--muted); }
 .small{ font-size: var(--text-small); }
 
-//* =========================
+/* =========================
    NAVBAR (UPGRADE)
    ========================= */
 .navbar{
