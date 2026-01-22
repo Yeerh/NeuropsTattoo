@@ -51,7 +51,7 @@ export default function Contato() {
                 </div>
                 <div className="kv-row">
                   <div className="kv-label">Especialidade</div>
-                  <div className="kv-value">Realismo PB e Cinza • Portrait</div>
+                  <div className="kv-value">  Preto e Cinza • Portrait</div>
                 </div>
               </div>
 
@@ -88,7 +88,7 @@ export default function Contato() {
                 <div className="field">
                   <label>Estilo</label>
                   <select value={estilo} onChange={(e) => setEstilo(e.target.value)}>
-                    <option>Realismo PB e Cinza</option>
+                    <option>Realismo Preto e Cinza</option>
                     <option>Portrait (Rosto)</option>
                     <option>Projeto autoral</option>
                   </select>
@@ -109,7 +109,7 @@ export default function Contato() {
                   <textarea
                     value={mensagem}
                     onChange={(e) => setMensagem(e.target.value)}
-                    placeholder="Ex.: quero um rosto em PB e cinza, com fundo leve..."
+                    placeholder="Ex.: quero um rosto em Preto e cinza, com fundo leve..."
                   />
                 </div>
 

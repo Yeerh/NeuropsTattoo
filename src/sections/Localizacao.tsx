@@ -1,5 +1,5 @@
 const ADDRESS =
-  "53410-420 Rua Sessenta e Quatro, 135, Jardim Paulista, Brasil";
+  "Rua Sessenta e Quatro, 135, Jardim Paulista, Paulista - PE, 53409-150, Brasil";
 
 const MAP_EMBED_SRC = `https://www.google.com/maps?q=${encodeURIComponent(
   ADDRESS
@@ -39,15 +39,14 @@ export default function Localizacao() {
               </div>
 
               <div className="kv">
-                <div className="kv-row">
-                  <div className="kv-label">CEP</div>
-                  <div className="kv-value">53410-420</div>
-                </div>
-
-                <div className="kv-row">
-                  <div className="kv-label">Rua</div>
-                  <div className="kv-value">Rua Sessenta e Quatro, 135</div>
-                </div>
+             <div className="kv-row">
+  <div className="kv-label">CEP</div>
+  <div className="kv-value">53409-150</div>
+</div>
+<div className="kv-row">
+  <div className="kv-label">Rua</div>
+  <div className="kv-value">Rua Sessenta e Quatro, 135</div>
+</div>
 
                 <div className="kv-row">
                   <div className="kv-label">Bairro</div>

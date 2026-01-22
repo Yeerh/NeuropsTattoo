@@ -14,13 +14,13 @@ export default function Navbar() {
     <header className="navbar">
       <div className="container">
         <div className="navbar-inner">
-          <a className="brand" href="#top" aria-label="Ir para o topo">
-            <span className="brand-mark" aria-hidden="true" />
-            <span className="brand-text">
-              <span className="brand-title">Neurops</span>
-              <span className="brand-sub">Tattoo</span>
-            </span>
-          </a>
+         <a className="brand" href="#top" aria-label="Ir para o topo">
+  <span className="brand-mark" aria-hidden="true" />
+  <span className="brand-text">
+    <span className="brand-title">NEUROPS</span>
+    <span className="brand-sub">TATUADOR • REALISMO PRETO E BRANCO</span>
+  </span>
+</a>
 
           <nav className="nav" aria-label="Navegação">
             <a href="#sobre">Sobre</a>

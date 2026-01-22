@@ -1,24 +1,16 @@
 // src/sections/Trabalho.jsx
 
 const works = [
-  {
-    src: "/portfolio/work-1.jpg",
-    title: "Realismo Preto e Cinza",
-  },
-  {
-    src: "/portfolio/work-2.jpg",
-    title: "Portrait (Rosto)",
-  },
-  {
-    src: "/portfolio/work-3.jpg",
-    title: "Contraste e Profundidade",
-  },
-  {
-    src: "/portfolio/work-4.jpg",
-    title: "Projeto Autoral",
-  },
-];
+  { src: "/portfolio/work-1.jpg", title: "Realismo Preto e Branco" },
 
+  // Foto 3 -> Foto 2 (Portrait)
+  { src: "/portfolio/work-3.jpg", title: "Portrait (Rosto)" },
+
+  // Foto 2 -> Foto 3
+  { src: "/portfolio/work-2.jpg", title: "Contraste e Leitura" },
+
+  { src: "/portfolio/work-4.jpg", title: "Projeto Autoral" },
+];
 export default function Trabalhos() {
   return (
     <section className="section" id="trabalhos" aria-label="Trabalhos">

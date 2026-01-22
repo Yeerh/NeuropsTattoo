@@ -121,7 +121,7 @@ body{
 }
 
 .brand-title{
-  font-family: "Tattos Wishe", sans-serif;
+  font-family: "Bebas Neue", sans-serif;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   font-size: 1.05rem;
@@ -294,7 +294,7 @@ body{
   gap: 6px;
 }
 .hero-h1{
-  font-family: "Firlest Regular", sans-serif;
+  font-family: "Firlest Regular", Regular sans-serif;
   font-size: var(--text-hero);
   font-weight: 800;               /* extra-negrito */
   letter-spacing: 0.22em;
@@ -698,7 +698,14 @@ body{
 }
 
 .hero-h1-brotheric {
-  font-family: "Brotheric Regular Demo", sans-serif;
+  font-family: "BBHHegarty-Regular", sans-serif;
+}
+@font-face{
+  font-family: "BBH Hegarty";
+  src: url("/assets/fonts/BBH-Hegarty.woff2") format("woff2");
+  font-weight: 400;
+  font-style: Regular;
+  font-display: swap;
 }
 
 /* Adding Firlest Regular font */
@@ -707,10 +714,25 @@ body{
   src: url("./assets/fonts/Firlest-Regular.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
+}.hero-h1{
+  font-family: "BBH Hegarty", sans-serif !important;
+  font-weight: 400;              /* ajuste se a fonte tiver pesos */
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  line-height: 0.92;
 }
 
-.hero-h1 {
-  font-family: "Firlest Regular", sans-serif;
+/* Se você usa a classe accent no "Tattoo" */
+.hero-h1.accent{
+  color: var(--accent);
+}
+
+/* Título no Navbar (se tiver brand-title) */
+.brand-title{
+  font-family: "BBH Hegarty", sans-serif !important;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
 }
 /* =========================
    DESTAQUE LARANJA (PALAVRAS)
@@ -839,6 +861,46 @@ body{
   gap: 10px;
   margin-top: 10px;
 }
+/* =========================
+   BACKGROUND GRADIENT BASE
+   ========================= */
+.hero{
+  position: relative;
+  background:
+    radial-gradient(
+      800px 400px at 20% 20%,
+      rgba(255, 90, 31, 0.25),
+      transparent 65%
+    );
+}
+@media (max-width: 768px){
+  body{
+    background-attachment: scroll;
+  }
+}
+
+body{
+  background:
+    radial-gradient(
+      1200px 600px at 15% -10%,
+      rgba(255, 90, 31, 0.22),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 500px at 85% 10%,
+      rgba(255, 90, 31, 0.12),
+      transparent 60%
+    ),
+    linear-gradient(
+      180deg,
+      #000000 0%,
+      #0b0b0b 45%,
+      #000000 100%
+    );
+
+  background-attachment: fixed;
+  color: var(--text);
+}
 
 .kv-row{
   display: grid;
@@ -949,4 +1011,48 @@ body{
 @media (max-width: 980px){
   .contact-grid, .location-grid{ grid-template-columns: 1fr; }
   .map-wrap{ height: 360px; }
+}
+/* =========================
+   TITLE TRACKING (RESPONSIVO)
+   ========================= */
+
+/* Base da fonte no título (BBH Hegarty) */
+.hero-h1{
+  font-family: "BBH Hegarty", sans-serif !important;
+  font-weight: 400;
+  text-transform: uppercase;
+
+  /* tracking responsivo (desktop -> mobile) */
+  letter-spacing: clamp(0.12em, 1.8vw, 0.22em);
+  line-height: 0.92;
+
+  /* evita “pular” layout em fontes custom */
+  font-kerning: normal;
+  text-rendering: geometricPrecision;
+}
+
+/* Neurops branco */
+.hero-h1:not(.accent){
+  color: #fff;
+}
+
+/* Tattoo laranja */
+.hero-h1.accent{
+  color: var(--accent);
+  text-shadow: 0 0 14px rgba(255,90,31,0.35), 0 0 28px rgba(255,90,31,0.18);
+}
+
+/* Ajuste fino mobile */
+@media (max-width: 560px){
+  .hero-h1{
+    letter-spacing: 0.12em; /* mais fechado no mobile */
+    line-height: 0.95;
+  }
+}
+
+/* Muito pequeno (evita quebra feia) */
+@media (max-width: 380px){
+  .hero-h1{
+    letter-spacing: 0.10em;
+  }
 }
