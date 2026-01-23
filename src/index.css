@@ -221,6 +221,94 @@ body{
   padding: 14px 14px 16px;
   border-top: 1px solid rgba(255,255,255,0.10);
 }
+/* =========================
+   LIGHTBOX
+   ========================= */
+
+.lightbox{
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: grid;
+  place-items: center;
+}
+
+.lightbox-backdrop{
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.78);
+  backdrop-filter: blur(8px);
+  border: 0;
+}
+
+.lightbox-content{
+  position: relative;
+  width: min(960px, calc(100% - 28px));
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(10,10,10,0.92);
+  box-shadow: 0 28px 90px rgba(0,0,0,0.65);
+  overflow: hidden;
+}
+
+.lightbox-img{
+  width: 100%;
+  height: min(72vh, 720px);
+  object-fit: contain;
+  display: block;
+  background: rgba(0,0,0,0.35);
+}
+
+.lightbox-caption{
+  padding: 12px 14px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  color: rgba(245,245,245,0.85);
+  text-align: center;
+}
+
+/* Botões */
+.icon-btn{
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
+  width: 40px;
+  height: 40px;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: transform .2s ease, background .2s ease;
+}
+.icon-btn:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,0.08);
+}
+
+.icon-btn.left,
+.icon-btn.right{
+  top: 50%;
+  transform: translateY(-50%);
+  right: auto;
+  font-size: 26px;
+  width: 44px;
+  height: 44px;
+}
+.icon-btn.left{ left: 10px; }
+.icon-btn.right{ right: 10px; }
+
+.icon-btn.close{
+  top: 10px;
+  right: 10px;
+}
+
+/* Mobile */
+@media (max-width: 560px){
+  .icon-btn.left,
+  .icon-btn.right{
+    display: none;
+  }
+}
 
 /* =========================
    BREAKPOINT
