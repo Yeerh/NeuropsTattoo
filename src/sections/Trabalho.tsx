@@ -1,13 +1,13 @@
 // src/sections/Trabalho.jsx
 
 const works = [
-  { src: "/portfolio/work-1.jpg", title: "Realismo Preto e Branco" },
+  { src: "/portfolio/work-1.jpg", title: "Realismo Preto e Cinza" },
 
   // Foto 3 -> Foto 2 (Portrait)
   { src: "/portfolio/work-3.jpg", title: "Portrait (Rosto)" },
 
   // Foto 2 -> Foto 3
-  { src: "/portfolio/work-2.jpg", title: "Contraste e Leitura" },
+  { src: "/portfolio/work-2.jpg", title: "Contraste e Textura" },
 
   { src: "/portfolio/work-4.jpg", title: "Projeto Autoral" },
 ];

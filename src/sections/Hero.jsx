@@ -106,10 +106,17 @@ export default function Hero() {
       >
         {/* ESQUERDA */}
         <div className="hero-left">
-          <div className="pill">Realismo Preto e Branco • Portrait</div>
+          <div className="pill">Realismo Preto e Cinza • Portrait</div>
 
           <div className="hero-title">
             {/* NEUROPS (branco) */}
+              <img
+    src="/logo-neurops-symbol.svg"
+    alt="Símbolo Neurops Tattoo"
+    className="hero-logo"
+    loading="eager"
+    draggable={false}
+  />
             <SplitText
               text="Neurops"
               tag="h1"
@@ -146,7 +153,7 @@ export default function Hero() {
           <p className="hero-subtitle">
             <strong>Valdir Neto</strong> — tatuador desde <strong>2015</strong>,
             com base artística no <strong>graffiti (2010–2013)</strong>. Foco em{" "}
-            <strong>realismo preto e branco</strong> com precisão,{" "}
+            <strong>realismo Preto e Cinza</strong> com precisão,{" "}
             <strong>contraste</strong> e <strong>leitura</strong>.
           </p>
 
@@ -175,7 +182,7 @@ export default function Hero() {
               <div className="stat-label">início na tattoo</div>
             </div>
             <div className="stat">
-              <div className="stat-value">Preto e Branco</div>
+              <div className="stat-value">Especialista</div>
               <div className="stat-label">realismo e portrait</div>
             </div>
           </div>
@@ -196,7 +203,7 @@ export default function Hero() {
           <div className="hero-badge">
             <div className="hero-badge-title">NEUROPS</div>
             <div className="hero-badge-sub">
-              Realismo Preto e Branco • Portrait
+              Realismo Preto e Cinza • Portrait
             </div>
           </div>
         </div>
