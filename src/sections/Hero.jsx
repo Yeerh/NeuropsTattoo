@@ -154,7 +154,7 @@ export default function Hero() {
             <strong>Valdir Neto</strong> — tatuador desde <strong>2015</strong>,
             com base artística no <strong>graffiti (2010–2013)</strong>. Foco em{" "}
             <strong>realismo Preto e Cinza</strong> com precisão,{" "}
-            <strong>contraste</strong> e <strong>leitura</strong>.
+            <strong>contraste</strong> e <strong>textura</strong>.
           </p>
 
           <div className="hero-actions">
